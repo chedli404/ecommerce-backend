@@ -4,21 +4,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js", 
-    "dev": "nodemon src/index.js", 
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.js",
     "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type":"module",
+  "type": "module",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.12.1",
-    "nodemon": "^3.1.9"
+    "mongoose": "^8.12.1"
   },
   "compilerOptions": {
     "target": "es2016",
@@ -28,6 +27,14 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
