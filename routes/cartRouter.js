@@ -17,8 +17,18 @@ const getCartAndProduct = async (cartId, productId) => {
 // Get user's cart
 router.get('/:userId', async (req, res) => {
   try {
-    const cart = await Cart.findOne({ userId: req.params.userId });
-    if (!cart) return res.status(404).json({ message: 'Cart not found' });
+    let cart = await Cart.findOne({ userId: req.params.userId });
+    
+    if (!cart) {
+      // Create a new cart if none exists
+      cart = new Cart({
+        userId: req.params.userId,
+        items: [],
+        totalPrice: 0
+      });
+      await cart.save();
+    }
+    
     res.status(200).json(cart);
   } catch (err) {
     console.error('Error getting cart:', err);
